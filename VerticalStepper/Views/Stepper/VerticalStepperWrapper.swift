@@ -30,8 +30,8 @@ struct VerticalStepperWrapper<Content: View>: View {
                     }
                 }
             }
-            .padding(.leading, 8)
-            .background(Color.clear)
+            .padding(.leading, 4)
+            .background(Color.white)
             .compositingGroup()
             .clipped()
         }

@@ -8,33 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    var sectionsData: [(title: String, content: [StaffRowView])] = [
+        ("Section 1", [StaffRowView(staff: staffData), StaffRowView(staff: staffData)]),
+        ("Section 2", [StaffRowView(staff: staffData)]),
+    ]
+
     var body: some View {
         VStack {
-            VerticalStepperWrapper(sections: [
-                VerticalStepperSection(
-                    title: "Section 1",
-                    content: [
-                        StaffRowView(staff: staffData),
-                        StaffRowView(staff: staffData),
-               
-                    ]
-                ),
-                VerticalStepperSection(
-                    title: "Section 2",
-                    content: [
-                        StaffRowView(staff: staffData),
-                        StaffRowView(staff: staffData),
-                        StaffRowView(staff: staffData),
-                       
-                    ]
-                ),
-            ])
+            VerticalStepperWrapper(
+                sections: sectionsData.map { section in
+                    VerticalStepperSection(
+                        title: section.title,
+                        content: section.content
+                    )
+                }
+            )
         }
+        .padding()
     }
 }
 
 #Preview {
     ContentView()
-        .padding()
-    
 }

@@ -18,7 +18,6 @@ struct VerticalStepperSection<Content: View>: View {
 
             VStack(alignment: .leading) {
                 ForEach(content.indices, id: \.self) { index in
-
                     VerticalStepperRow(
                         isFirstRow: isFirstSection && index == 0,
                         isLastRow: isLastSection && index == content.count - 1,
